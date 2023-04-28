@@ -9,7 +9,9 @@ data class StoreCache(
     @ColumnInfo(name = "item_name")
     var name: String,
     @ColumnInfo(name = "item_amount")
-    var amount: Int
+    var amount: Int,
+    @ColumnInfo(name = "item_price")
+    var price: Int
 ) {
     @PrimaryKey(autoGenerate = true)
     var id:Int? = null
