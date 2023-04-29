@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hardwarestoreappmvvm.data.Repository
 import com.example.hardwarestoreappmvvm.data.cache.StoreCache
@@ -20,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         val factory = ViewModelFactory(repository)
         val viewModel = ViewModelProvider(this, factory)[StoreViewModel::class.java]
         val recyclerView = binding.storeItems
-        val adapter = StoreItemAdapter(listOf(), viewModel)
+        val adapter = StoreItemAdapter(ManageResources.Base(this), listOf(), viewModel)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
 

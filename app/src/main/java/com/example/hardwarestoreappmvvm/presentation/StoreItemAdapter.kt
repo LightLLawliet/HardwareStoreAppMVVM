@@ -11,12 +11,12 @@ import com.example.hardwarestoreappmvvm.R
 import com.example.hardwarestoreappmvvm.data.cache.StoreCache
 
 class StoreItemAdapter(
+    private val manageResources: ManageResources,
     var items: List<StoreCache>,
     private val viewModel: StoreViewModel
 ) : RecyclerView.Adapter<StoreItemAdapter.StoreViewHolder>() {
 
     private val list = mutableListOf<StoreUi>()
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StoreViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.store_item, parent, false)
         return StoreViewHolder(view)
@@ -26,8 +26,9 @@ class StoreItemAdapter(
         val storeItem = items[position]
 
         holder.itemView.findViewById<TextView>(R.id.tvName).text = storeItem.name
+        holder.itemView.findViewById<TextView>(R.id.tvPrice).text =
+            "${storeItem.price} " + manageResources.string(R.string.amount_end)
         holder.itemView.findViewById<TextView>(R.id.tvAmount).text = "${storeItem.amount}"
-        holder.itemView.findViewById<TextView>(R.id.tvPrice).text = "${storeItem.price}" + " шт."
 
         holder.itemView.findViewById<ImageView>(R.id.ivDelete).setOnClickListener {
             viewModel.delete(storeItem)
