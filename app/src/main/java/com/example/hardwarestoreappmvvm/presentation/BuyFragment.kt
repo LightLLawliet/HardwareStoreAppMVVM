@@ -30,7 +30,7 @@ class BuyFragment : Fragment() {
         val viewModel = ViewModelProvider(this, factory)[MainViewModel::class.java]
         val recyclerView = view.findViewById<RecyclerView>(R.id.frontItems)
         val adapter =
-            StoreFrontItemAdapter(ManageResources.Base(this.requireActivity()), listOf(), viewModel)
+            StoreFrontItemAdapter(ManageResources.Base(this.requireActivity()), listOf())
         recyclerView.layoutManager = LinearLayoutManager(activity)
         recyclerView.adapter = adapter
         viewModel.getAllItems().observe(viewLifecycleOwner) {

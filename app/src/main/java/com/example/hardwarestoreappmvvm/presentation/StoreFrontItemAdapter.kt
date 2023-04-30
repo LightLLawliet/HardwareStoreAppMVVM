@@ -11,12 +11,12 @@ import com.example.hardwarestoreappmvvm.data.cache.StoreCache
 
 class StoreFrontItemAdapter(
     private val manageResources: ManageResources,
-    var items: List<StoreCache>,
-    private val viewModel: MainViewModel
+    var items: List<StoreCache>
 ) : RecyclerView.Adapter<StoreFrontItemAdapter.StoreViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StoreViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.store_front_item, parent, false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.store_front_item, parent, false)
         return StoreViewHolder(view)
     }
 
