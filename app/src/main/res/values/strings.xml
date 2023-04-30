@@ -11,4 +11,7 @@
     <string name="plus">+</string>
     <string name="price">Price</string>
     <string name="amount_end">шт.</string>
+    <string name="store_front">Store-Front</string>
+    <string name="back_end">Back-End</string>
+    <string name="buy">Buy</string>
 </resources>

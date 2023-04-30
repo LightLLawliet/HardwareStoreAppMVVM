@@ -1,4 +1,4 @@
-package com.example.hardwarestoreappmvvm.presentation
+package com.example.hardwarestoreappmvvm.data
 
 import android.content.Context
 import androidx.annotation.StringRes

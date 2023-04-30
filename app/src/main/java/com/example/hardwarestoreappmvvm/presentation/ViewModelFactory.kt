@@ -5,9 +5,10 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.hardwarestoreappmvvm.data.Repository
 
 class ViewModelFactory(
-    private val repository: Repository
-) : ViewModelProvider.NewInstanceFactory(){
+    private val repository: Repository,
+    private val dispatchersList: DispatchersList
+) : ViewModelProvider.NewInstanceFactory() {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return StoreViewModel(repository) as T
+        return StoreViewModel(repository, dispatchersList) as T
     }
 }
