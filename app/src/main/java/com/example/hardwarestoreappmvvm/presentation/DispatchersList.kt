@@ -10,6 +10,7 @@ interface DispatchersList {
     fun ui(): CoroutineDispatcher
 
     class Base : DispatchersList {
+
         override fun io() = Dispatchers.IO
 
         override fun ui() = Dispatchers.Main

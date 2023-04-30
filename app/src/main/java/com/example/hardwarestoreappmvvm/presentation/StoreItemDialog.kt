@@ -17,21 +17,23 @@ class StoreItemDialog(
         super.onCreate(savedInstanceState)
         val binding = DialogItemBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.textViewAdd.setOnClickListener {
-            val name = binding.editTextName.text.toString()
-            val amount = binding.editTextAmount.text.toString()
-            val price = binding.editTextPrice.text.toString()
+        if (savedInstanceState == null) {
+            binding.textViewAdd.setOnClickListener {
+                val name = binding.editTextName.text.toString()
+                val amount = binding.editTextAmount.text.toString()
+                val price = binding.editTextPrice.text.toString()
 
-            if (name.isEmpty() || amount.isEmpty() || price.isEmpty()) {
-                Toast.makeText(context, "Please enter all data", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
+                if (name.isEmpty() || amount.isEmpty() || price.isEmpty()) {
+                    Toast.makeText(context, "Please enter all data", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+                val item = StoreCache(name, amount.toInt(), price.toInt())
+                addDialogListener.onClicked(item)
+                dismiss()
             }
-            val item = StoreCache(name, amount.toInt(), price.toInt())
-            addDialogListener.onClicked(item)
-            dismiss()
-        }
-        binding.textViewCancel.setOnClickListener {
-            cancel()
+            binding.textViewCancel.setOnClickListener {
+                cancel()
+            }
         }
     }
 }

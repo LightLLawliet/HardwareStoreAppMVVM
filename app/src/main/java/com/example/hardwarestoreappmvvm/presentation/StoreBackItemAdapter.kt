@@ -13,10 +13,9 @@ import com.example.hardwarestoreappmvvm.data.cache.StoreCache
 class StoreBackItemAdapter(
     private val manageResources: ManageResources,
     var items: List<StoreCache>,
-    private val viewModel: StoreViewModel
+    private val viewModel: MainViewModel
 ) : RecyclerView.Adapter<StoreBackItemAdapter.StoreViewHolder>() {
 
-    private val list = mutableListOf<StoreUi>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StoreViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.store_back_item, parent, false)
         return StoreViewHolder(view)

@@ -9,6 +9,6 @@ class ViewModelFactory(
     private val dispatchersList: DispatchersList
 ) : ViewModelProvider.NewInstanceFactory() {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return StoreViewModel(repository, dispatchersList) as T
+        return MainViewModel(repository, StoreLiveDataWrapper.Base(), dispatchersList) as T
     }
 }

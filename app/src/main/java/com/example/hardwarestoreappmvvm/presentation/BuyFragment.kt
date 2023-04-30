@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -28,15 +27,15 @@ class BuyFragment : Fragment() {
         val database = StoreDatabase(requireActivity())
         val repository = Repository(database)
         val factory = ViewModelFactory(repository, DispatchersList.Base())
-        val viewModel = ViewModelProvider(this, factory)[StoreViewModel::class.java]
+        val viewModel = ViewModelProvider(this, factory)[MainViewModel::class.java]
         val recyclerView = view.findViewById<RecyclerView>(R.id.frontItems)
         val adapter =
             StoreFrontItemAdapter(ManageResources.Base(this.requireActivity()), listOf(), viewModel)
         recyclerView.layoutManager = LinearLayoutManager(activity)
         recyclerView.adapter = adapter
-        viewModel.getAllItems().observe(viewLifecycleOwner, Observer {
+        viewModel.getAllItems().observe(viewLifecycleOwner) {
             adapter.items = it
             adapter.notifyDataSetChanged()
-        })
+        }
     }
 }

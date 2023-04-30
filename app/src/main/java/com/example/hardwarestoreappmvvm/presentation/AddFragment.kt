@@ -37,6 +37,10 @@ class AddFragment : Fragment() {
             adapter.notifyDataSetChanged()
         }
 
+        viewModel.observe(this) {
+
+        }
+
         view.findViewById<ImageView>(R.id.addButton).setOnClickListener {
             StoreItemDialog(requireContext(),
                 object : AddDialogListener {

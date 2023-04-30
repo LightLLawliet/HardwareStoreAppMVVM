@@ -4,15 +4,20 @@ import android.app.Application
 import com.example.hardwarestoreappmvvm.data.Repository
 import com.example.hardwarestoreappmvvm.data.cache.StoreDatabase
 import com.example.hardwarestoreappmvvm.presentation.DispatchersList
-import com.example.hardwarestoreappmvvm.presentation.StoreViewModel
+import com.example.hardwarestoreappmvvm.presentation.MainViewModel
+import com.example.hardwarestoreappmvvm.presentation.StoreLiveDataWrapper
 
 class StoreApp : Application() {
 
-    lateinit var viewModel: StoreViewModel
+    lateinit var viewModel: MainViewModel
 
     override fun onCreate() {
         super.onCreate()
 
-        viewModel = StoreViewModel(Repository(StoreDatabase(this)),DispatchersList.Base())
+        viewModel = MainViewModel(
+            Repository(StoreDatabase(this)),
+            StoreLiveDataWrapper.Base(),
+            DispatchersList.Base()
+        )
     }
 }

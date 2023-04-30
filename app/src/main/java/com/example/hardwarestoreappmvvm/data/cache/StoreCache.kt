@@ -14,5 +14,5 @@ data class StoreCache(
     var price: Int
 ) {
     @PrimaryKey(autoGenerate = true)
-    var id:Int? = null
+    var id: Int? = null
 }
