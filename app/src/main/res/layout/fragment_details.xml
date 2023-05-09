@@ -7,9 +7,9 @@
 
 
     <TextView
-        android:gravity="center"
-        android:id="@+id/backEndName"
+        android:id="@+id/detailsName"
         style="@style/frontMainText"
+        android:gravity="center"
         tools:text="@string/name" />
 
     <LinearLayout
@@ -21,7 +21,7 @@
             android:text="@string/price" />
 
         <TextView
-            android:id="@+id/backEndPrice"
+            android:id="@+id/detailsPrice"
             style="@style/frontBaseText"
             tools:text="@string/price" />
     </LinearLayout>
@@ -35,7 +35,7 @@
             android:text="@string/amount" />
 
         <TextView
-            android:id="@+id/backEndAmount"
+            android:id="@+id/detailsAmount"
             style="@style/frontBaseText"
             tools:text="@string/amount" />
     </LinearLayout>

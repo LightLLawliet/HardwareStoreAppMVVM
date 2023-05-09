@@ -21,7 +21,7 @@ interface NavigationStrategy {
                 .executeTransaction(containerId)
                 .commit()
         }
-
+        
         protected abstract fun FragmentTransaction.executeTransaction(containerId: Int): FragmentTransaction
     }
 

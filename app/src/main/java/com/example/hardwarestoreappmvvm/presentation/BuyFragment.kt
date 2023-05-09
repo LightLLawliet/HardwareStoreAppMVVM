@@ -36,6 +36,7 @@ class BuyFragment : Fragment() {
             )
         recyclerView.layoutManager = LinearLayoutManager(activity)
         recyclerView.adapter = adapter
+
         viewModel.getAllItems().observe(viewLifecycleOwner) {
             adapter.items = it
             adapter.notifyDataSetChanged()

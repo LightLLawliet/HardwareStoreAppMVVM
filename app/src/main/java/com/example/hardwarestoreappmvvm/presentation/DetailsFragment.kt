@@ -1,7 +1,6 @@
 package com.example.hardwarestoreappmvvm.presentation
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,19 +24,11 @@ class DetailsFragment : Fragment() {
         val buyButton = view.findViewById<Button>(R.id.buyButton)
         val viewModel = (activity?.application as StoreApp).viewModel
         val adapter =
-            StoreBackItemAdapter(ManageResources.Base(this.requireActivity()), listOf(), viewModel)
+            StoreBackItemAdapter(ManageResources.Base(this.requireActivity()), viewModel, listOf())
 
         viewModel.getAllItems().observe(viewLifecycleOwner) {
             adapter.items = it
             adapter.notifyDataSetChanged()
-        }
-
-        buyButton.setOnClickListener {
-            val storeItem = adapter.items[adapter.itemCount - 1]
-            if (storeItem.amount > 0) {
-                storeItem.amount--
-                viewModel.insert(storeItem)
-            }
         }
     }
 }

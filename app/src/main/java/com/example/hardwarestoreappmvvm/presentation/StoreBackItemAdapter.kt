@@ -6,15 +6,16 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.hardwarestoreappmvvm.ProvideData
 import com.example.hardwarestoreappmvvm.R
 import com.example.hardwarestoreappmvvm.data.ManageResources
 import com.example.hardwarestoreappmvvm.data.cache.StoreCache
 
 class StoreBackItemAdapter(
     private val manageResources: ManageResources,
-    var items: List<StoreCache>,
-    private val viewModel: MainViewModel
-) : RecyclerView.Adapter<StoreBackItemAdapter.StoreViewHolder>() {
+    private val viewModel: MainViewModel,
+    internal var items: List<StoreCache>,
+) : RecyclerView.Adapter<StoreBackItemAdapter.StoreViewHolder>(), ProvideData {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StoreViewHolder {
         val view =
@@ -34,6 +35,7 @@ class StoreBackItemAdapter(
             viewModel.delete(storeItem)
         }
         holder.itemView.findViewById<ImageView>(R.id.imageViewPlus).setOnClickListener {
+
             storeItem.amount++
             viewModel.insert(storeItem)
         }

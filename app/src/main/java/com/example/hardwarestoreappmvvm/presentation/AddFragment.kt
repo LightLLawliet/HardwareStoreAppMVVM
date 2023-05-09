@@ -28,7 +28,10 @@ class AddFragment : Fragment() {
         val viewModel = (activity?.application as StoreApp).viewModel
         val recyclerView = view.findViewById<RecyclerView>(R.id.storeItems)
         val adapter =
-            StoreBackItemAdapter(ManageResources.Base(this.requireActivity()), listOf(), viewModel)
+            StoreBackItemAdapter(
+                ManageResources.Base(this.requireActivity()), viewModel,
+                listOf()
+            )
         recyclerView.layoutManager = LinearLayoutManager(activity)
         recyclerView.adapter = adapter
 
